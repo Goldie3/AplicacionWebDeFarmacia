@@ -7,7 +7,6 @@
         public DateTime fechaIngreso { get; set; }
         public int cantidadProducto { get; set; }
         public int precio { get; set; }
-
         public string descripcion { get; set; }
     public Producto(int idProducto, string nombreProducto, DateTime fechaIngreso, int cantidadProducto, int precio, string descripcion)
         {

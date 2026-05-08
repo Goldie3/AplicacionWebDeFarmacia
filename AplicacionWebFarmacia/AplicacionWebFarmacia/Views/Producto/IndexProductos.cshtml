@@ -27,7 +27,9 @@
             <th>
                 Precio
             </th>
-            <th></th>
+            <th>
+                descripcion
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -49,6 +51,10 @@
                 @Html.DisplayFor(modelItem => item.precio)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
