@@ -30,6 +30,9 @@
             <th>
                 descripcion
             </th>
+            <th>
+                Fecha de vencimiento
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -54,11 +57,13 @@
                 @Html.DisplayFor(modelItem => item.descripcion)
             </td>
             <td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fechaVencimiento)
+            </td>
 
                 @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
         </tr>
 }
     </tbody>
