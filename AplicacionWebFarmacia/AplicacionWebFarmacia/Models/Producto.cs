@@ -10,7 +10,10 @@
         public string descripcion { get; set; }
         public DateTime fechaVencimiento { get; set; }
 
-    public Producto(int idProducto, string nombreProducto, DateTime fechaIngreso, int cantidadProducto, int precio, string descripcion, DateTime fechaVencimiento)
+        public Producto()
+        {
+        }
+        public Producto(int idProducto, string nombreProducto, DateTime fechaIngreso, int cantidadProducto, int precio, string descripcion, DateTime fechaVencimiento)
         {
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;
@@ -20,6 +23,5 @@
             this.descripcion = descripcion;
             this.fechaVencimiento = fechaVencimiento;
         }
-        
     }
 }
