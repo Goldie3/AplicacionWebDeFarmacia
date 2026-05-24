@@ -8,7 +8,6 @@ html {
   }
 }
 
-
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -30,9 +29,11 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
 .text-center{
     margin-bottom: 30px;
 }
+
 .seccion1 {
     width: 800px;
     float: left;
@@ -58,7 +59,6 @@ aside {
     margin: 0 0 100px 20px;
     padding: 16px 20px;
     background-color: #fff8f0;
-
 }
 
     aside h3 {
@@ -73,6 +73,7 @@ aside {
         line-height: 1.6;
         white-space: pre-line;
     }
+
 article {
     width: 800px;
     float: left;
@@ -93,3 +94,60 @@ article {
         margin: 0;
         line-height: 1.8;
     }
+
+
+.table-productos {
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 25px;
+    width: 100%;
+}
+
+.table-productos thead th {
+    background: linear-gradient(135deg, #1b6ec2, #0d5ab8);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    padding: 16px 10px;
+    border-bottom: 4px solid #0a4a9c;
+}
+
+.table-productos tbody tr {
+    transition: all 0.25s ease;
+}
+
+.table-productos tbody td {
+    padding: 14px 10px;
+    vertical-align: middle;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.table-productos tbody tr:nth-child(even) {
+    background-color: #f8fbff;
+}
+
+.table-productos td:nth-child(6) {
+    text-align: left;
+    max-width: 280px;
+    white-space: normal;
+}
+
+.table-productos td a {
+    color: #1b6ec2;
+    font-weight: 500;
+    margin: 0 3px;
+}
+
+@media (max-width: 992px) {
+    .table-productos {
+        font-size: 0.95rem;
+    }
+    
+    .table-productos thead th,
+    .table-productos tbody td {
+        padding: 12px 8px;
+    }
+}
