@@ -14,7 +14,7 @@ namespace AplicacionWebFarmacia.Controllers
             _conexion = conexion;
         }
         // GET: CRUDController
-        public ActionResult Index(ProductoController producto)
+        public ActionResult Index()
         {
             return View();
         }
@@ -62,40 +62,104 @@ namespace AplicacionWebFarmacia.Controllers
         }
 
         // GET: CRUDController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int idProducto)
         {
-            return View();
-        }
 
+            using (MySqlConnection conn = _conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM producto WHERE idproducto = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", idProducto);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Producto producto = new Producto()
+                    {
+                        idProducto = reader.GetInt32("idproducto"),
+                        nombreProducto = reader.GetString("nombre"),
+                        fechaIngreso = reader.GetDateTime("fechaIngreso"),
+                        cantidadProducto = reader.GetInt32("cantidadProducto"),
+                        precio = reader.GetInt32("precio"),
+                        descripcion = reader.GetString("descripcion"),
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                    };
+                    return View(producto);
+                }
+
+                {
+                    return View();
+                }
+            }
+        }
         // POST: CRUDController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int idProducto, Producto producto)
         {
-            try
+            using (MySqlConnection conn = _conexion.ObtenerConexion())
             {
-                return RedirectToAction(nameof(Index));
+                conn.Open();
+                string query = "UPDATE producto SET nombre = @nombre, fechaIngreso = @fechaIngreso, cantidadProducto = @cantidadProducto, precio = @precio, descripcion = @descripcion, fechaVencimiento = @fechaVencimiento WHERE idproducto = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", idProducto);
+                cmd.Parameters.AddWithValue("@nombre", producto.nombreProducto);
+                cmd.Parameters.AddWithValue("@fechaIngreso", producto.fechaIngreso);
+                cmd.Parameters.AddWithValue("@cantidadProducto", producto.cantidadProducto);
+                cmd.Parameters.AddWithValue("@precio", producto.precio);
+                cmd.Parameters.AddWithValue("@descripcion", producto.descripcion);
+                cmd.Parameters.AddWithValue("@fechaVencimiento", producto.fechaVencimiento);
+
+                cmd.ExecuteNonQuery();
             }
-            catch
-            {
-                return View();
-            }
+
+            return RedirectToAction("IndexProductos", "Producto");
         }
 
         // GET: CRUDController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int idProducto)
         {
-            return View();
-        }
+            using (MySqlConnection conn = _conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "SELECT * FROM producto WHERE idproducto = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", idProducto);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    Producto producto = new Producto()
+                    {
+                        idProducto = reader.GetInt32("idproducto"),
+                        nombreProducto = reader.GetString("nombre"),
+                        fechaIngreso = reader.GetDateTime("fechaIngreso"),
+                        cantidadProducto = reader.GetInt32("cantidadProducto"),
+                        precio = reader.GetInt32("precio"),
+                        descripcion = reader.GetString("descripcion"),
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                    };
+                    return View(producto);
+                }
 
+                return RedirectToAction("IndexProductos", "Producto");
+            }
+        }
         // POST: CRUDController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int idProducto, IFormCollection collection)
         {
+            using (MySqlConnection conn = _conexion.ObtenerConexion())
+            {
+                conn.Open();
+                string query = "DELETE FROM producto WHERE idproducto = @id";
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@id", idProducto);
+                cmd.ExecuteNonQuery();
+            }
             try
             {
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("IndexProductos", "Producto");
             }
             catch
             {

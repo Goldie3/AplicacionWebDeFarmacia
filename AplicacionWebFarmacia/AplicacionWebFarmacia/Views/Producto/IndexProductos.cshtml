@@ -59,11 +59,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.fechaVencimiento)
             </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "CRUD", new { idProducto = item.idProducto }, null) |
+                    @Html.ActionLink("Details", "Details", "CRUD", new { idProducto = item.idProducto }, null) |
+                    @Html.ActionLink("Delete", "Delete", "CRUD", new { idProducto = item.idProducto }, null)
+                </td>
         </tr>
 }
     </tbody>
