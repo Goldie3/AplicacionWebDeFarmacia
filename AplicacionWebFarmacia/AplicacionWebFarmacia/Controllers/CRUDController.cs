@@ -39,8 +39,8 @@ namespace AplicacionWebFarmacia.Controllers
             using(MySqlConnection conn = _conexion.ObtenerConexion())
             {
                 conn.Open();
-                string query = "INSERT INTO producto (nombre, fechaIngreso, cantidadProducto, precio, descripcion, fechaVencimiento)" +
-                    "VALUES (@nombre, @fechaIngreso, @cantidadProducto, @precio, @descripcion, @fechaVencimiento)";
+                string query = "INSERT INTO producto (nombre, fechaIngreso, cantidadProducto, precio, descripcion, fechaVencimiento, tipo)" +
+                    "VALUES (@nombre, @fechaIngreso, @cantidadProducto, @precio, @descripcion, @fechaVencimiento, @tipo)";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@nombre", producto.nombreProducto);
                 cmd.Parameters.AddWithValue("@fechaIngreso", producto.fechaIngreso);
@@ -48,6 +48,7 @@ namespace AplicacionWebFarmacia.Controllers
                 cmd.Parameters.AddWithValue("@precio", producto.precio);
                 cmd.Parameters.AddWithValue("@descripcion", producto.descripcion);
                 cmd.Parameters.AddWithValue("@fechaVencimiento", producto.fechaVencimiento);
+                cmd.Parameters.AddWithValue("@tipo", producto.tipo);
 
                 cmd.ExecuteNonQuery();
             }
@@ -82,7 +83,8 @@ namespace AplicacionWebFarmacia.Controllers
                         cantidadProducto = reader.GetInt32("cantidadProducto"),
                         precio = reader.GetInt32("precio"),
                         descripcion = reader.GetString("descripcion"),
-                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento"),
+                        tipo = reader.GetString("tipo")
                     };
                     return View(producto);
                 }
@@ -100,7 +102,7 @@ namespace AplicacionWebFarmacia.Controllers
             using (MySqlConnection conn = _conexion.ObtenerConexion())
             {
                 conn.Open();
-                string query = "UPDATE producto SET nombre = @nombre, fechaIngreso = @fechaIngreso, cantidadProducto = @cantidadProducto, precio = @precio, descripcion = @descripcion, fechaVencimiento = @fechaVencimiento WHERE idproducto = @id";
+                string query = "UPDATE producto SET nombre = @nombre, fechaIngreso = @fechaIngreso, cantidadProducto = @cantidadProducto, precio = @precio, descripcion = @descripcion, fechaVencimiento = @fechaVencimiento, tipo = @tipo WHERE idproducto = @id";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", idProducto);
                 cmd.Parameters.AddWithValue("@nombre", producto.nombreProducto);
@@ -109,6 +111,7 @@ namespace AplicacionWebFarmacia.Controllers
                 cmd.Parameters.AddWithValue("@precio", producto.precio);
                 cmd.Parameters.AddWithValue("@descripcion", producto.descripcion);
                 cmd.Parameters.AddWithValue("@fechaVencimiento", producto.fechaVencimiento);
+                cmd.Parameters.AddWithValue("@tipo", producto.tipo);
 
                 cmd.ExecuteNonQuery();
             }
@@ -136,7 +139,8 @@ namespace AplicacionWebFarmacia.Controllers
                         cantidadProducto = reader.GetInt32("cantidadProducto"),
                         precio = reader.GetInt32("precio"),
                         descripcion = reader.GetString("descripcion"),
-                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento"),
+                        tipo = reader.GetString("tipo")
                     };
                     return View(producto);
                 }

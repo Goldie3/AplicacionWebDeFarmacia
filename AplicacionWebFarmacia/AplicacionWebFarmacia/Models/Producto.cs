@@ -21,8 +21,10 @@ namespace AplicacionWebFarmacia.Models
         [Required(ErrorMessage = "La fecha de vencimiento es obligatoria.")]
         public DateTime fechaVencimiento { get; set; }
 
+        public string tipo { get; set; }
+
         public Producto() { }
-        public Producto(int idProducto, string nombreProducto, DateTime fechaIngreso, int cantidadProducto, int precio, string descripcion, DateTime fechaVencimiento)
+        public Producto(int idProducto, string nombreProducto, DateTime fechaIngreso, int cantidadProducto, int precio, string descripcion, DateTime fechaVencimiento, string tipo)
         {
             this.idProducto = idProducto;
             this.nombreProducto = nombreProducto;
@@ -31,6 +33,7 @@ namespace AplicacionWebFarmacia.Models
             this.precio = precio;
             this.descripcion = descripcion;
             this.fechaVencimiento = fechaVencimiento;
+            this.tipo = tipo;
         }
     }
 }

@@ -7,7 +7,7 @@
 <h1>Tabla de los productos</h1>
 
 <p>
-    <a asp-controller="CRUD" asp-action="Create" class="btn btn-primary">Create New</a>
+    <a asp-controller="CRUD" asp-action="Create" class="btn btn-primary">Crear nuevo producto</a>
 </p>
 
 <table class="table table-productos">
@@ -20,6 +20,8 @@
             <th>Precio</th>
             <th>Descripcion</th>
             <th>Fecha de vencimiento</th>
+            <th>Tipo</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -33,9 +35,10 @@
                 <td>@Html.DisplayFor(modelItem => item.precio)</td>
                 <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
                 <td>@Html.DisplayFor(modelItem => item.fechaVencimiento)</td>
+                <td>@Html.DisplayFor(modelItem => item.tipo)</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary btn-sm" })
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger btn-sm" })
+                    @Html.ActionLink("Editar", "Edit", "CRUD", new { idProducto = item.idProducto }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Eliminar", "Delete", "CRUD", new { idProducto = item.idProducto }, new { @class = "btn btn-danger btn-sm" })
                 </td>
             </tr>
         }

@@ -36,7 +36,8 @@ namespace AplicacionWebFarmacia.Controllers
                         cantidadProducto = reader.GetInt32("cantidadProducto"),
                         precio = reader.GetInt32("precio"),
                         descripcion = reader.GetString("descripcion"),
-                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento"),
+                        tipo = reader.GetString("tipo")
                     });
                 }
             }
@@ -63,7 +64,8 @@ namespace AplicacionWebFarmacia.Controllers
                         cantidadProducto = reader.GetInt32("cantidadProducto"),
                         precio = reader.GetInt32("precio"),
                         descripcion = reader.GetString("descripcion"),
-                        fechaVencimiento = reader.GetDateTime("fechaVencimiento")
+                        fechaVencimiento = reader.GetDateTime("fechaVencimiento"),
+                        tipo = reader.GetString("tipo")
                     });
                 }
             }

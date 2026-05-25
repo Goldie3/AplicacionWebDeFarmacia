@@ -17,6 +17,7 @@
                 <th>Precio</th>
                 <th>Stock</th>
                 <th>Fecha de vencimiento</th>
+                <th>Tipo</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,7 @@
                     <td>$@item.precio</td>
                     <td>@item.cantidadProducto</td>
                     <td>@item.fechaVencimiento.ToString("dd/MM/yyyy")</td>
+                    <td>@item.tipo</td>
                 </tr>
             }
         </tbody>
