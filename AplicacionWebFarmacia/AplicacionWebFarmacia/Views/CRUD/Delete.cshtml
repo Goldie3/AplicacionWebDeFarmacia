@@ -1,41 +1,47 @@
-﻿@model AplicacionWebFarmacia.Models.Producto
+@model AplicacionWebFarmacia.Models.Producto
 
 @{
     ViewData["Title"] = "Eliminar Producto";
 }
 
-<h2>Eliminar Producto</h2>
+<h2 class="text-center">Eliminar Producto</h2>
 
-<p>¿Estás seguro que deseas eliminar este producto?</p>
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm p-4">
+            <p class="text-center lead">¿Estás seguro que deseas eliminar este producto?</p>
+            
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">Id</dt>
+                <dd class="col-sm-8">@Model.idProducto</dd>
 
-<div>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-3">Id</dt>
-        <dd class="col-sm-9">@Model.idProducto</dd>
+                <dt class="col-sm-4">Nombre</dt>
+                <dd class="col-sm-8">@Model.nombreProducto</dd>
 
-        <dt class="col-sm-3">Nombre</dt>
-        <dd class="col-sm-9">@Model.nombreProducto</dd>
+                <dt class="col-sm-4">Fecha de ingreso</dt>
+                <dd class="col-sm-8">@Model.fechaIngreso.ToShortDateString()</dd>
 
-        <dt class="col-sm-3">Fecha de ingreso</dt>
-        <dd class="col-sm-9">@Model.fechaIngreso.ToShortDateString()</dd>
+                <dt class="col-sm-4">Cantidad</dt>
+                <dd class="col-sm-8">@Model.cantidadProducto</dd>
 
-        <dt class="col-sm-3">Cantidad</dt>
-        <dd class="col-sm-9">@Model.cantidadProducto</dd>
+                <dt class="col-sm-4">Precio</dt>
+                <dd class="col-sm-8">@Model.precio</dd>
 
-        <dt class="col-sm-3">Precio</dt>
-        <dd class="col-sm-9">@Model.precio</dd>
+                <dt class="col-sm-4">Descripción</dt>
+                <dd class="col-sm-8">@Model.descripcion</dd>
 
-        <dt class="col-sm-3">Descripción</dt>
-        <dd class="col-sm-9">@Model.descripcion</dd>
+                <dt class="col-sm-4">Fecha de vencimiento</dt>
+                <dd class="col-sm-8">@Model.fechaVencimiento.ToShortDateString()</dd>
+            </dl>
 
-        <dt class="col-sm-3">Fecha de vencimiento</dt>
-        <dd class="col-sm-9">@Model.fechaVencimiento.ToShortDateString()</dd>
-    </dl>
+            <div class="text-center mt-4">
+                <form asp-controller="CRUD" asp-action="Delete" style="display: inline;">
+                    <input type="hidden" name="idProducto" value="@Model.idProducto" />
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </form>
+                <a asp-controller="Producto" asp-action="IndexProductos" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </div>
+    </div>
 </div>
-
-<form asp-controller="CRUD" asp-action="Delete">
-    <input type="hidden" name="idProducto" value="@Model.idProducto" />
-    <button type="submit" class="btn btn-danger">Eliminar</button>
-    <a asp-controller="Producto" asp-action="IndexProductos" class="btn btn-secondary">Cancelar</a>
-</form>
