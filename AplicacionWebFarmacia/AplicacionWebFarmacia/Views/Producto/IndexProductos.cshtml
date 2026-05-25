@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AplicacionWebFarmacia.Models.Producto>
+@model IEnumerable<AplicacionWebFarmacia.Models.Producto>
 
 @{
     ViewData["Title"] = "Productos";
@@ -7,64 +7,37 @@
 <h1>Tabla de los productos</h1>
 
 <p>
-    <a asp-controller="CRUD" asp-action="Create">Create New</a>
+    <a asp-controller="CRUD" asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
+
 <table class="table table-productos">
     <thead>
         <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Nombre del producto
-            </th>
-            <th>
-                Fecha de ingreso
-            </th>
-            <th>
-                Cantidad stock
-            </th>
-            <th>
-                Precio
-            </th>
-            <th>
-                descripcion
-            </th>
-            <th>
-                Fecha de vencimiento
-            </th>
+            <th>Id</th>
+            <th>Nombre del producto</th>
+            <th>Fecha de ingreso</th>
+            <th>Cantidad stock</th>
+            <th>Precio</th>
+            <th>Descripcion</th>
+            <th>Fecha de vencimiento</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.idProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.nombreProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechaIngreso)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cantidadProducto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.precio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.fechaVencimiento)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.idProducto)</td>
+                <td>@Html.DisplayFor(modelItem => item.nombreProducto)</td>
+                <td>@Html.DisplayFor(modelItem => item.fechaIngreso)</td>
+                <td>@Html.DisplayFor(modelItem => item.cantidadProducto)</td>
+                <td>@Html.DisplayFor(modelItem => item.precio)</td>
+                <td>@Html.DisplayFor(modelItem => item.descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.fechaVencimiento)</td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "CRUD", new { idProducto = item.idProducto }, null) |
-                    @Html.ActionLink("Details", "Details", "CRUD", new { idProducto = item.idProducto }, null) |
-                    @Html.ActionLink("Delete", "Delete", "CRUD", new { idProducto = item.idProducto }, null)
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-primary btn-sm" })
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger btn-sm" })
                 </td>
-        </tr>
-}
+            </tr>
+        }
     </tbody>
 </table>
