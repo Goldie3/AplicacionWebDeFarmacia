@@ -32,8 +32,9 @@ CREATE TABLE `producto` (
   `precio` int DEFAULT NULL,
   `descripcion` text,
   `fechaVencimiento` date DEFAULT NULL,
+  `tipo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idproducto`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,16 +43,12 @@ CREATE TABLE `producto` (
 
 LOCK TABLES `producto` WRITE;
 /*!40000 ALTER TABLE `producto` DISABLE KEYS */;
-INSERT INTO `producto` VALUES (1,'Jarabe','2024-06-12',20,1000,'jarabe bueno','2026-05-01'),(2,'Paracetamol','2025-09-12',50,1500,'paracetamol medio caro creo','2026-02-19'),(3,'remedio generico','2025-04-24',100,500,'remedio terrible generico','2026-03-19'),(4,'amoxisilina','2024-11-22',100,500,'medicamento muy bueno','2027-03-19'),(5,'Loratadina 10mg','2025-05-01',110,1900,'Antialérgico para aliviar síntomas de alergia','2027-02-14'),(6,'Alcohol Gel 500ml','2025-05-02',75,3000,'Gel desinfectante para manos','2028-01-10'),(7,'Aspirina 100mg','2025-05-03',130,1600,'Medicamento analgésico y anticoagulante','2027-06-25'),(8,'Crema para quemaduras','2025-05-04',40,5200,'Crema tópica para tratar irritaciones y quemaduras leves','2026-10-12'),(9,'Sales de rehidratación','2025-05-05',95,1400,'Producto para prevenir deshidratación','2027-03-08'),(10,'Diclofenaco Gel','2025-05-06',50,4100,'Gel antiinflamatorio para dolores musculares','2026-07-19');
+INSERT INTO `producto` VALUES (1,'Jarabe','2024-06-12',20,1000,'jarabe bueno hola','2026-05-01','Medicamento'),(2,'Paracetamol','2025-09-12',50,1500,'paracetamol medio caro creo','2026-02-19','Medicamento'),(3,'remedio generico','2025-04-24',100,500,'remedio terrible generico','2026-03-19','Medicamento'),(4,'amoxisilina','2024-11-22',100,500,'medicamento muy bueno','2027-03-19','Antibiótico'),(5,'Loratadina 10mg','2025-05-01',110,1900,'Antialérgico para aliviar síntomas de alergia','2027-02-14','Antialérgico'),(6,'Alcohol Gel 500ml','2025-05-02',75,3000,'Gel desinfectante para manos','2028-01-10','Higiene'),(7,'Aspirina 100mg','2025-05-03',130,1600,'Medicamento analgésico y anticoagulante','2027-06-25','Analgésico'),(8,'Crema para quemaduras','2025-05-04',40,5200,'Crema tópica para tratar irritaciones y quemaduras leves','2026-10-12','Tópico'),(9,'Sales de rehidratación','2025-05-05',95,1400,'Producto para prevenir deshidratación','2027-03-08','Suplemento'),(10,'Diclofenaco Gel','2025-05-06',50,4100,'Gel antiinflamatorio para dolores musculares','2026-07-19','Antiinflamatorio');
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping events for database 'productos_farmacia'
---
-
---
--- Dumping routines for database 'productos_farmacia'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -63,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-19 13:58:20
+-- Dump completed on 2026-05-25 19:24:59

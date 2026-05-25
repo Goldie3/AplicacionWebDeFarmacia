@@ -1,0 +1,1 @@
+https://github.com/Goldie3/AplicacionWebDeFarmacia.git (Si al tratar de importar el scrip de la base de datos, arrastre el archivo en MySQL Workbench y corra el script desde la linea de comandos.)
