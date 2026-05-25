@@ -1,0 +1,35 @@
+﻿@model IEnumerable<AplicacionWebFarmacia.Models.Producto>
+
+@{
+    ViewData["Title"] = "Productos";
+}
+
+<link rel="stylesheet" href="~/css/listaproductos.css" asp-append-version="true" />
+
+<div class="container mt-4">
+    <h1 class="mb-4">Productos disponibles</h1>
+
+    <table class="table table-bordered table-hover">
+        <thead class="table-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Fecha de vencimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.nombreProducto</td>
+                    <td>@item.descripcion</td>
+                    <td>$@item.precio</td>
+                    <td>@item.cantidadProducto</td>
+                    <td>@item.fechaVencimiento.ToString("dd/MM/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
