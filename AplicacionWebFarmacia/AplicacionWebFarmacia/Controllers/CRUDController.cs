@@ -52,14 +52,11 @@ namespace AplicacionWebFarmacia.Controllers
 
                 cmd.ExecuteNonQuery();
             }
-            try
-            {
-                return RedirectToAction();
-            }
-            catch
-            {
-                return View();
-            }
+
+            TempData["Mensaje"] = "Producto creado exitosamente.";
+            TempData["Tipo"] = "success";
+
+            return RedirectToAction("IndexProductos", "Producto");
         }
 
         // GET: CRUDController/Edit/5
@@ -115,7 +112,8 @@ namespace AplicacionWebFarmacia.Controllers
 
                 cmd.ExecuteNonQuery();
             }
-
+            TempData["Mensaje"] = "Producto actualizado correctamente.";
+            TempData["Tipo"] = "success";
             return RedirectToAction("IndexProductos", "Producto");
         }
 
@@ -144,7 +142,8 @@ namespace AplicacionWebFarmacia.Controllers
                     };
                     return View(producto);
                 }
-
+                TempData["Mensaje"] = "Producto eliminado con exito.";
+                TempData["MensajeTipo"] = "success";
                 return RedirectToAction("IndexProductos", "Producto");
             }
         }
@@ -163,6 +162,8 @@ namespace AplicacionWebFarmacia.Controllers
             }
             try
             {
+                TempData["Mensaje"] = "Producto eliminado con exito.";
+                TempData["Tipo"] = "success";
                 return RedirectToAction("IndexProductos", "Producto");
             }
             catch

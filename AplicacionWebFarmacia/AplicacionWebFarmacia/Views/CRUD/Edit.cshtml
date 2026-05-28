@@ -9,35 +9,45 @@
 <div class="row justify-content-center">
     <div class="col-md-6">
         <form asp-controller="CRUD" asp-action="Edit">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
             <input type="hidden" asp-for="idProducto" />
-            
+
             <div class="form-group">
                 <label asp-for="nombreProducto"></label>
                 <input asp-for="nombreProducto" class="form-control" />
+                <span asp-validation-for="nombreProducto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="fechaIngreso"></label>
                 <input asp-for="fechaIngreso" class="form-control" type="date" />
+                <span asp-validation-for="fechaIngreso" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="cantidadProducto"></label>
                 <input asp-for="cantidadProducto" class="form-control" type="number" />
+                <span asp-validation-for="cantidadProducto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="precio"></label>
                 <input asp-for="precio" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="precio" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="descripcion"></label>
                 <textarea asp-for="descripcion" class="form-control"></textarea>
+                <span asp-validation-for="descripcion" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="fechaVencimiento"></label>
                 <input asp-for="fechaVencimiento" class="form-control" type="date" />
+                <span asp-validation-for="fechaVencimiento" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="tipo"></label>
                 <input asp-for="tipo" class="form-control" />
+                <span asp-validation-for="tipo" class="text-danger"></span>
             </div>
 
             <div class="form-group text-center mt-4">
@@ -47,3 +57,9 @@
         </form>
     </div>
 </div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
